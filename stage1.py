@@ -12,19 +12,25 @@ def get_organization_id(organization_name):
     for org in stage0.get_organizations():
         if org['name'] == organization_name:
             organization_id = org['id']
+
     return organization_id
+
 
 def get_network_id(network_name, organization_name):
     response = dashboard.organizations.getOrganizationNetworks(get_organization_id(organization_name), total_pages='all')
+
     for network in response:
         if network['name'] == network_name:
             network_id = network['id']
+
     return network_id
 
 
 def get_device_inventory(organization_name):
     response = dashboard.organizations.getOrganizationInventoryDevices(get_organization_id(organization_name), total_pages='all')
+
     return response
+
 
 if __name__ == "__main__":
     # Generalizes this for given organization name and network name
@@ -43,6 +49,9 @@ if __name__ == "__main__":
         relevant_device.pop('networkId')
         relevant_device.pop('claimedAt')
         relevant_device.pop('orderNumber')
+
+        # Adds source specification
+        relevant_device['category'] = 'meraki'
 
     # Writes the relevant inventory to inventory.json
     with open('inventory.json', 'w') as output_file:
