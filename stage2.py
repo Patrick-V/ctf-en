@@ -31,19 +31,3 @@ if __name__ == "__main__":
         json.dump(relevant_inventory, output_file)
     
     print(f"DNAC inventory was successfully written to inventory.json!")
-    
-
-        
-
-
-
-
-
-
-
-
-
-
-
-    
-    
