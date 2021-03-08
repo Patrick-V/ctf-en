@@ -1,6 +1,5 @@
 from env import config
 from dnacentersdk import DNACenterAPI
-import meraki
 import json
 
 dnac = DNACenterAPI(username = config['DNAC_USER'],
