@@ -1,3 +1,6 @@
 venv/
 ven/
 *.pyc
+.vscode/
+__pycache__/
+meraki_api__log__*
