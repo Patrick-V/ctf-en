@@ -25,8 +25,9 @@ if __name__ == "__main__":
     
     # Appends the existing Meraki inventory with DNAC inventory in inventory.json
     with open('inventory.json', 'r+') as output_file:
+        # Ensures the json dump further on is appended at the end of the file
         existing_inventory = json.load(output_file)
-        total_inventory = existing_inventory + relevant_inventory
+
         json.dump(relevant_inventory, output_file)
     
     print(f"DNAC inventory was successfully written to inventory.json!")
